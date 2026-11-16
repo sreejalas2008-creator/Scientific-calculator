@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scientific Calculator - Smart Calculation Made Simple">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <!-- Title bar -->
+    <header class="app-header">
+      <div>
+        <h1>SCIENTIFIC CALCULATOR</h1>
+        <p class="subtitle">Smart Calculation Made Simple</p>
+      </div>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch between dark and light theme">&#9728;</button>
+    </header>
+
+    <div class="layout">
+
+      <!-- Calculator panel -->
+      <section class="calculator glass" aria-label="Scientific calculator">
+
+        <!-- Display -->
+        <div class="display">
+          <div class="display-top">
+            <span id="memoryIndicator" class="badge" aria-label="Memory in use" hidden>M</span>
+            <div class="mode-switch" role="group" aria-label="Angle mode">
+              <button type="button" class="mode-btn active" data-action="deg" aria-pressed="true">DEG</button>
+              <button type="button" class="mode-btn" data-action="rad" aria-pressed="false">RAD</button>
+            </div>
+            <button id="copyBtn" class="copy-btn" type="button" aria-label="Copy result to clipboard">Copy result</button>
+          </div>
+          <div id="expression" class="expression" aria-label="Current expression">0</div>
+          <div id="result" class="result" role="status" aria-live="polite" aria-label="Result">0</div>
+        </div>
+
+        <!-- Memory keys -->
+        <div class="memory-row" role="group" aria-label="Memory functions">
+          <button type="button" class="btn mem" data-action="mc" aria-label="Memory clear">MC</button>
+          <button type="button" class="btn mem" data-action="mr" aria-label="Memory recall">MR</button>
+          <button type="button" class="btn mem" data-action="mplus" aria-label="Add to memory">M+</button>
+          <button type="button" class="btn mem" data-action="mminus" aria-label="Subtract from memory">M-</button>
+        </div>
+
+        <div class="keys">
+
+          <!-- Scientific keys -->
+          <div class="sci-pad" role="group" aria-label="Scientific functions">
+            <button type="button" class="btn sci" data-insert="sin(" aria-label="Sine">sin</button>
+            <button type="button" class="btn sci" data-insert="cos(" aria-label="Cosine">cos</button>
+            <button type="button" class="btn sci" data-insert="tan(" aria-label="Tangent">tan</button>
+            <button type="button" class="btn sci" data-insert="sin&#8315;&#185;(" aria-label="Inverse sine">sin&#8315;&#185;</button>
+            <button type="button" class="btn sci" data-insert="cos&#8315;&#185;(" aria-label="Inverse cosine">cos&#8315;&#185;</button>
+
+            <button type="button" class="btn sci" data-insert="tan&#8315;&#185;(" aria-label="Inverse tangent">tan&#8315;&#185;</button>
+            <button type="button" class="btn sci" data-insert="log(" aria-label="Logarithm base 10">log</button>
+            <button type="button" class="btn sci" data-insert="ln(" aria-label="Natural logarithm">ln</button>
+            <button type="button" class="btn sci" data-insert="&#8730;(" aria-label="Square root">&#8730;</button>
+            <button type="button" class="btn sci" data-insert="&#8731;(" aria-label="Cube root">&#8731;</button>
+
+            <button type="button" class="btn sci" data-insert="^2" aria-label="Square">x&#178;</button>
+            <button type="button" class="btn sci" data-insert="^3" aria-label="Cube">x&#179;</button>
+            <button type="button" class="btn sci" data-insert="^" aria-label="Power">x&#696;</button>
+            <button type="button" class="btn sci" data-insert="!" aria-label="Factorial">n!</button>
+            <button type="button" class="btn sci" data-action="reciprocal" aria-label="Reciprocal">1/x</button>
+
+            <button type="button" class="btn sci" data-insert="&#960;" aria-label="Pi">&#960;</button>
+            <button type="button" class="btn sci" data-insert="e" aria-label="Euler's number">e</button>
+            <button type="button" class="btn sci" data-insert="abs(" aria-label="Absolute value">|x|</button>
+            <button type="button" class="btn sci" data-insert="exp(" aria-label="e to the power x">e&#738;</button>
+            <button type="button" class="btn sci" data-insert="10^(" aria-label="10 to the power x">10&#738;</button>
+          </div>
+
+          <!-- Main keypad -->
+          <div class="main-pad" role="group" aria-label="Number pad">
+            <button type="button" class="btn special" data-action="clear" aria-label="All clear">AC</button>
+            <button type="button" class="btn special" data-action="delete" aria-label="Delete last entry">DEL</button>
+            <button type="button" class="btn op" data-insert="(" aria-label="Open parenthesis">(</button>
+            <button type="button" class="btn op" data-insert=")" aria-label="Close parenthesis">)</button>
+
+            <button type="button" class="btn num" data-insert="7">7</button>
+            <button type="button" class="btn num" data-insert="8">8</button>
+            <button type="button" class="btn num" data-insert="9">9</button>
+            <button type="button" class="btn op" data-insert="&#247;" aria-label="Divide">&#247;</button>
+
+            <button type="button" class="btn num" data-insert="4">4</button>
+            <button type="button" class="btn num" data-insert="5">5</button>
+            <button type="button" class="btn num" data-insert="6">6</button>
+            <button type="button" class="btn op" data-insert="&#215;" aria-label="Multiply">&#215;</button>
+
+            <button type="button" class="btn num" data-insert="1">1</button>
+            <button type="button" class="btn num" data-insert="2">2</button>
+            <button type="button" class="btn num" data-insert="3">3</button>
+            <button type="button" class="btn op" data-insert="-" aria-label="Subtract">&#8722;</button>
+
+            <button type="button" class="btn num" data-insert="0">0</button>
+            <button type="button" class="btn num" data-insert="." aria-label="Decimal point">.</button>
+            <button type="button" class="btn op" data-insert="%" aria-label="Percent">%</button>
+            <button type="button" class="btn op" data-insert="+" aria-label="Add">+</button>
+
+            <button type="button" class="btn equals" data-action="equals" aria-label="Equals">=</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- History panel -->
+      <aside class="history glass" aria-label="Calculation history">
+        <div class="history-head">
+          <h2>History</h2>
+          <button id="clearHistory" class="copy-btn" type="button" aria-label="Clear calculation history">Clear history</button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+      </aside>
+    </div>
+
+    <footer class="footer">Developed as an Engineering Student Project</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
